@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>¿Dónde está mi auto</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="estilo.css" type="text/css">
+    </head>
+    
+    <body>
+        <h1>¿Dónde está mi coche?</h1>
+        
+        <button onclick="localizar()"><p>E</p></button>
+        <button onclick="buscar()" id="btn">Buscar mi carro</button>
+        
+    </body>
+    
+    <script>
+        function localizar(){
+            navigator.geolocation.getCurrentPosition(Posicion);
+        }
+        function Posicion(posicion){
+            
+            localStorage.setItem('Lat',posicion.coords.latitude);
+            localStorage.setItem('Long',posicion.coords.longitude);
+            
+            document.getElementById('btn').style.transition=".2s all";
+            document.getElementById('btn').style.visibility="visible";
+            document.getElementById('btn').style.opacity="1";
+        }
+    
+    </script>
+</html>
